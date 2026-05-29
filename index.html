@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TikTok Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5edf7;
+padding-bottom:100px;
+}
+
+/* BANNER */
+
+.banner{
+width:100%;
+height:250px;
+overflow:hidden;
+}
+
+.banner img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* BALANCE CARD */
+
+.balance-card{
+width:90%;
+margin:-20px auto 20px;
+background:white;
+border-radius:15px;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.balance-card h1{
+font-size:38px;
+}
+
+.balance-card p{
+color:gray;
+margin-top:5px;
+}
+
+.wallet-btn{
+width:60px;
+height:60px;
+border:none;
+border-radius:50%;
+background:#7b00d4;
+color:white;
+font-size:22px;
+}
+
+/* MAIN BUTTON */
+
+.main-button{
+width:90%;
+margin:auto;
+}
+
+.main-button button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:50px;
+background:#7b00d4;
+color:white;
+font-size:18px;
+font-weight:bold;
+}
+
+/* MENU */
+
+.menu-grid{
+width:90%;
+margin:35px auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+text-align:center;
+}
+
+.icon{
+width:70px;
+height:70px;
+background:#d9b7ff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+font-size:26px;
+color:#7b00d4;
+}
+
+.menu-item p{
+margin-top:10px;
+font-size:13px;
+}
+
+/* TITLE */
+
+.title{
+text-align:center;
+margin-bottom:20px;
+}
+
+/* CARDS */
+
+.cards{
+width:90%;
+margin:auto;
+display:flex;
+gap:15px;
+}
+
+.card{
+flex:1;
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card p{
+color:gray;
+margin-top:10px;
+}
+
+/* IMAGE GRID */
+
+.image-grid{
+width:90%;
+margin:30px auto;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.image-grid img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:70px;
+background:white;
+display:flex;
+justify-content:space-around;
+align-items:center;
+box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-item{
+font-size:24px;
+color:gray;
+}
+
+.active{
+color:#7b00d4;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BANNER -->
+
+<div class="banner">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200">
+</div>
+
+<!-- BALANCE CARD -->
+
+<div class="balance-card">
+
+<div>
+<h1>USD3.00</h1>
+<p>Mi saldo</p>
+</div>
+
+<button class="wallet-btn">
+<i class="fa-solid fa-dollar-sign"></i>
+</button>
+
+</div>
+
+<!-- BUTTON -->
+
+<div class="main-button">
+<button>
+<i class="fa-solid fa-money-bill-wave"></i>
+EMPIECE A GANAR DINERO
+</button>
+</div>
+
+<!-- MENU -->
+
+<div class="menu-grid">
+
+<div class="menu-item">
+<div class="icon">
+<i class="fa-solid fa-coins"></i>
+</div>
+<p>Recargar monedas</p>
+</div>
+
+<div class="menu-item">
+<div class="icon">
+<i class="fa-solid fa-wallet"></i>
+</div>
+<p>Retirar monedas</p>
+</div>
+
+<div class="menu-item">
+<div class="icon">
+<i class="fa-solid fa-share-nodes"></i>
+</div>
+<p>Invitar amigos</p>
+</div>
+
+<div class="menu-item">
+<div class="icon">
+<i class="fa-solid fa-comments"></i>
+</div>
+<p>Servicio cliente</p>
+</div>
+
+</div>
+
+<!-- TITLE -->
+
+<div class="title">
+<h2>OBTENER INGRESOS</h2>
+</div>
+
+<!-- CARDS -->
+
+<div class="cards">
+
+<div class="card">
+<h2>USD0</h2>
+<p>Comisión de hoy</p>
+</div>
+
+<div class="card">
+<h2>USD0</h2>
+<p>Obtener ingresos</p>
+</div>
+
+</div>
+
+<!-- IMAGES -->
+
+<div class="image-grid">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600">
+
+<img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600">
+
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600">
+
+<img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600">
+
+</div>
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+<div class="nav-item active">
+<i class="fa-solid fa-house"></i>
+</div>
+
+<div class="nav-item">
+<i class="fa-solid fa-list-check"></i>
+</div>
+
+<div class="nav-item">
+<i class="fa-solid fa-money-bill-transfer"></i>
+</div>
+
+<div class="nav-item">
+<i class="fa-solid fa-comment"></i>
+</div>
+
+<div class="nav-item">
+<i class="fa-solid fa-user"></i>
+</div>
+
+</div>
+
+</body>
+</html>
