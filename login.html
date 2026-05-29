@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TikTok Mall Perú</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+/* BODY */
+
+body{
+background:#f3eaf5;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+/* CONTAINER */
+
+.container{
+width:100%;
+max-width:420px;
+text-align:center;
+}
+
+/* LOGO */
+
+.logo img{
+width:120px;
+border-radius:20px;
+}
+
+.logo h2{
+margin-top:10px;
+font-size:28px;
+color:#222;
+}
+
+/* FORM */
+
+.form-box{
+margin-top:30px;
+}
+
+/* PHONE ROW */
+
+.phone-row{
+display:flex;
+margin-bottom:15px;
+}
+
+.country{
+width:90px;
+height:50px;
+border:none;
+border-radius:30px 0 0 30px;
+padding-left:15px;
+font-size:18px;
+background:white;
+outline:none;
+}
+
+.phone-input{
+flex:1;
+height:50px;
+border:none;
+border-radius:0 30px 30px 0;
+padding-left:20px;
+font-size:17px;
+outline:none;
+background:white;
+}
+
+/* INPUT */
+
+.input-box{
+width:100%;
+height:50px;
+margin-bottom:15px;
+border:none;
+border-radius:30px;
+padding-left:20px;
+font-size:17px;
+outline:none;
+background:white;
+}
+
+/* BUTTONS */
+
+.btn{
+width:100%;
+height:55px;
+border:none;
+border-radius:35px;
+font-size:20px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+margin-top:18px;
+}
+
+.register-btn{
+background:#6d00d8;
+}
+
+.login-btn{
+background:#ff5b21;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+display:none;
+}
+
+/* HEADER */
+
+.header{
+background:#6d00d8;
+padding:20px;
+border-radius:20px;
+color:white;
+margin-bottom:20px;
+}
+
+.balance{
+font-size:38px;
+margin-top:10px;
+}
+
+/* MENU */
+
+.menu{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+margin-top:20px;
+}
+
+.menu-box{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.menu-box i{
+font-size:35px;
+color:#6d00d8;
+margin-bottom:10px;
+}
+
+.menu-box h3{
+font-size:18px;
+color:#222;
+}
+
+/* MESSAGE */
+
+.message{
+margin-top:15px;
+color:red;
+font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+.logo img{
+width:100px;
+}
+
+.logo h2{
+font-size:24px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- REGISTER / LOGIN -->
+
+<div id="authSection">
+
+<div class="logo">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg">
+
+<h2>TikTok Mall Perú</h2>
+
+</div>
+
+<div class="form-box">
+
+<!-- PHONE -->
+
+<div class="phone-row">
+
+<select class="country" id="country">
+<option>+51</option>
+</select>
+
+<input
+type="text"
+id="phone"
+class="phone-input"
+placeholder="Ingrese número móvil">
+
+</div>
+
+<!-- PASSWORD -->
+
+<input
+type="password"
+id="password"
+class="input-box"
+placeholder="Ingrese contraseña">
+
+<!-- CONFIRM PASSWORD -->
+
+<input
+type="password"
+id="confirmPassword"
+class="input-box"
+placeholder="Confirme contraseña">
+
+<!-- INVITE -->
+
+<input
+type="text"
+id="invite"
+class="input-box"
+placeholder="Código de invitación">
+
+<!-- REGISTER -->
+
+<button class="btn register-btn"
+onclick="registerUser()">
+
+REGISTRO
+
+</button>
+
+<!-- LOGIN -->
+
+<button class="btn login-btn"
+onclick="loginUser()">
+
+ACCESO
+
+</button>
+
+<div class="message" id="message"></div>
+
+</div>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="dashboard" id="dashboard">
+
+<div class="header">
+
+<h2>Bienvenido</h2>
+
+<div class="balance">
+S/ 3.00
+</div>
+
+<p>Saldo disponible</p>
+
+</div>
+
+<div class="menu">
+
+<div class="menu-box">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h3>Recargar</h3>
+
+</div>
+
+<div class="menu-box">
+
+<i class="fa-solid fa-money-bill-transfer"></i>
+
+<h3>Retirar</h3>
+
+</div>
+
+<div class="menu-box">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>Invitar</h3>
+
+</div>
+
+<div class="menu-box">
+
+<i class="fa-solid fa-headset"></i>
+
+<h3>Soporte</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* REGISTER */
+
+function registerUser(){
+
+let phone =
+document.getElementById("phone").value;
+
+let password =
+document.getElementById("password").value;
+
+let confirmPassword =
+document.getElementById("confirmPassword").value;
+
+let message =
+document.getElementById("message");
+
+/* VALIDATION */
+
+if(phone === "" || password === ""){
+
+message.innerHTML =
+"Complete todos los campos";
+
+return;
+
+}
+
+if(password !== confirmPassword){
+
+message.innerHTML =
+"La contraseña no coincide";
+
+return;
+
+}
+
+/* SAVE */
+
+localStorage.setItem(
+"userPhone",
+phone
+);
+
+localStorage.setItem(
+"userPassword",
+password
+);
+
+/* DIRECT LOGIN */
+
+document.getElementById(
+"authSection"
+).style.display = "none";
+
+document.getElementById(
+"dashboard"
+).style.display = "block";
+
+}
+
+/* LOGIN */
+
+function loginUser(){
+
+let phone =
+document.getElementById("phone").value;
+
+let password =
+document.getElementById("password").value;
+
+let savedPhone =
+localStorage.getItem("userPhone");
+
+let savedPassword =
+localStorage.getItem("userPassword");
+
+let message =
+document.getElementById("message");
+
+/* CHECK */
+
+if(
+phone === savedPhone &&
+password === savedPassword
+){
+
+document.getElementById(
+"authSection"
+).style.display = "none";
+
+document.getElementById(
+"dashboard"
+).style.display = "block";
+
+}else{
+
+message.innerHTML =
+"Número o contraseña incorrecta";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
