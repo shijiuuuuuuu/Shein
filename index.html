@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TikTok Dashboard</title>
+<title>Panel Perú</title>
 
+<!-- ICONS -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
+
+/* RESET */
 
 *{
 margin:0;
@@ -18,17 +22,20 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
+/* BODY */
+
 body{
-background:#f5edf7;
+background:#f4edf8;
 padding-bottom:100px;
 }
 
-/* BANNER */
+/* TOP BANNER */
 
 .banner{
 width:100%;
-height:250px;
+height:260px;
 overflow:hidden;
+position:relative;
 }
 
 .banner img{
@@ -37,43 +44,63 @@ height:100%;
 object-fit:cover;
 }
 
+/* LOGO TEXT */
+
+.logo-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+color:white;
+font-size:55px;
+font-weight:bold;
+text-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+
 /* BALANCE CARD */
 
 .balance-card{
-width:90%;
-margin:-20px auto 20px;
+width:92%;
+margin:-25px auto 20px;
 background:white;
-border-radius:15px;
-padding:20px;
+border-radius:18px;
+padding:22px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+position:relative;
+z-index:5;
 }
 
 .balance-card h1{
 font-size:38px;
+color:#222;
 }
 
 .balance-card p{
-color:gray;
 margin-top:5px;
+color:gray;
+font-size:15px;
 }
 
+/* WALLET BUTTON */
+
 .wallet-btn{
-width:60px;
-height:60px;
+width:65px;
+height:65px;
 border:none;
 border-radius:50%;
 background:#7b00d4;
 color:white;
-font-size:22px;
+font-size:24px;
+cursor:pointer;
 }
 
 /* MAIN BUTTON */
 
 .main-button{
-width:90%;
+width:92%;
 margin:auto;
 }
 
@@ -86,72 +113,92 @@ background:#7b00d4;
 color:white;
 font-size:18px;
 font-weight:bold;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(123,0,212,0.3);
 }
 
-/* MENU */
+/* MENU GRID */
 
 .menu-grid{
-width:90%;
-margin:35px auto;
+width:92%;
+margin:40px auto;
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:15px;
+gap:18px;
 text-align:center;
+}
+
+.menu-item{
+display:flex;
+flex-direction:column;
+align-items:center;
 }
 
 .icon{
-width:70px;
-height:70px;
-background:#d9b7ff;
+width:72px;
+height:72px;
 border-radius:50%;
+background:#e4c8ff;
 display:flex;
 justify-content:center;
 align-items:center;
-margin:auto;
-font-size:26px;
+font-size:28px;
 color:#7b00d4;
+margin-bottom:10px;
 }
 
 .menu-item p{
-margin-top:10px;
-font-size:13px;
+font-size:14px;
+color:#333;
+line-height:20px;
 }
 
-/* TITLE */
+/* SECTION TITLE */
 
-.title{
+.section-title{
 text-align:center;
-margin-bottom:20px;
+margin-bottom:25px;
 }
 
-/* CARDS */
+.section-title h2{
+font-size:26px;
+color:#333;
+}
+
+/* INCOME CARDS */
 
 .cards{
-width:90%;
+width:92%;
 margin:auto;
 display:flex;
-gap:15px;
+gap:18px;
 }
 
 .card{
 flex:1;
 background:white;
-padding:25px;
-border-radius:15px;
+padding:28px;
+border-radius:18px;
 text-align:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h2{
+font-size:32px;
+color:#222;
 }
 
 .card p{
-color:gray;
 margin-top:10px;
+color:gray;
+font-size:15px;
 }
 
-/* IMAGE GRID */
+/* IMAGE SECTION */
 
 .image-grid{
-width:90%;
-margin:30px auto;
+width:92%;
+margin:35px auto;
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:20px;
@@ -159,36 +206,65 @@ gap:20px;
 
 .image-grid img{
 width:100%;
-height:220px;
+height:230px;
 object-fit:cover;
-border-radius:20px;
+border-radius:22px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* BOTTOM NAV */
+/* BOTTOM NAVIGATION */
 
 .bottom-nav{
 position:fixed;
 bottom:0;
 left:0;
 width:100%;
-height:70px;
+height:75px;
 background:white;
 display:flex;
 justify-content:space-around;
 align-items:center;
-box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+box-shadow:0 -2px 12px rgba(0,0,0,0.1);
 }
 
 .nav-item{
 font-size:24px;
 color:gray;
+cursor:pointer;
 }
 
 .active{
 color:#7b00d4;
 }
 
+/* MOBILE */
+
+@media(max-width:768px){
+
+.logo-text{
+font-size:40px;
+}
+
+.balance-card h1{
+font-size:28px;
+}
+
+.cards{
+flex-direction:column;
+}
+
+.menu-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.image-grid{
+grid-template-columns:1fr;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
@@ -196,16 +272,22 @@ color:#7b00d4;
 <!-- BANNER -->
 
 <div class="banner">
+
 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200">
+
+<div class="logo-text">
+TikTok Shop
 </div>
 
-<!-- BALANCE CARD -->
+</div>
+
+<!-- BALANCE -->
 
 <div class="balance-card">
 
 <div>
-<h1>USD3.00</h1>
-<p>Mi saldo</p>
+<h1>S/ 3.00</h1>
+<p>Mi saldo disponible</p>
 </div>
 
 <button class="wallet-btn">
@@ -214,13 +296,15 @@ color:#7b00d4;
 
 </div>
 
-<!-- BUTTON -->
+<!-- MAIN BUTTON -->
 
 <div class="main-button">
+
 <button>
 <i class="fa-solid fa-money-bill-wave"></i>
-EMPIECE A GANAR DINERO
+EMPIEZA A GANAR DINERO
 </button>
+
 </div>
 
 <!-- MENU -->
@@ -228,39 +312,53 @@ EMPIECE A GANAR DINERO
 <div class="menu-grid">
 
 <div class="menu-item">
+
 <div class="icon">
 <i class="fa-solid fa-coins"></i>
 </div>
-<p>Recargar monedas</p>
+
+<p>Recargar saldo</p>
+
 </div>
 
 <div class="menu-item">
+
 <div class="icon">
 <i class="fa-solid fa-wallet"></i>
 </div>
-<p>Retirar monedas</p>
+
+<p>Retirar dinero</p>
+
 </div>
 
 <div class="menu-item">
+
 <div class="icon">
 <i class="fa-solid fa-share-nodes"></i>
 </div>
+
 <p>Invitar amigos</p>
+
 </div>
 
 <div class="menu-item">
+
 <div class="icon">
-<i class="fa-solid fa-comments"></i>
+<i class="fa-solid fa-headset"></i>
 </div>
-<p>Servicio cliente</p>
+
+<p>Atención al cliente</p>
+
 </div>
 
 </div>
 
 <!-- TITLE -->
 
-<div class="title">
+<div class="section-title">
+
 <h2>OBTENER INGRESOS</h2>
+
 </div>
 
 <!-- CARDS -->
@@ -268,13 +366,19 @@ EMPIECE A GANAR DINERO
 <div class="cards">
 
 <div class="card">
-<h2>USD0</h2>
-<p>Comisión de hoy</p>
+
+<h2>S/ 0</h2>
+
+<p>Ganancia de hoy</p>
+
 </div>
 
 <div class="card">
-<h2>USD0</h2>
-<p>Obtener ingresos</p>
+
+<h2>S/ 0</h2>
+
+<p>Ingresos totales</p>
+
 </div>
 
 </div>
@@ -293,7 +397,7 @@ EMPIECE A GANAR DINERO
 
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- BOTTOM NAVIGATION -->
 
 <div class="bottom-nav">
 
