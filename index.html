@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,11 +25,11 @@ font-family:Arial,sans-serif;
 /* BODY */
 
 body{
-background:#f4edf7;
+background:#f3eaf5;
 padding-bottom:100px;
 }
 
-/* AUTH PAGE */
+/* LOGIN PAGE */
 
 #authPage{
 width:100%;
@@ -39,11 +40,15 @@ align-items:center;
 padding:20px;
 }
 
+/* LOGIN BOX */
+
 .auth-box{
 width:100%;
 max-width:420px;
 text-align:center;
 }
+
+/* LOGO */
 
 .logo img{
 width:120px;
@@ -61,6 +66,8 @@ color:#222;
 .form-box{
 margin-top:30px;
 }
+
+/* PHONE */
 
 .phone-row{
 display:flex;
@@ -89,6 +96,8 @@ outline:none;
 background:white;
 }
 
+/* INPUT */
+
 .input-box{
 width:100%;
 height:50px;
@@ -101,7 +110,7 @@ background:white;
 margin-bottom:15px;
 }
 
-/* BUTTONS */
+/* BUTTON */
 
 .btn{
 width:100%;
@@ -120,7 +129,7 @@ background:#7000d8;
 }
 
 .login-btn{
-background:#ff5a1f;
+background:#ff5b21;
 }
 
 /* MESSAGE */
@@ -137,13 +146,12 @@ font-size:15px;
 display:none;
 }
 
-/* TOP BANNER */
+/* BANNER */
 
 .banner{
 width:100%;
-height:220px;
+height:230px;
 overflow:hidden;
-position:relative;
 }
 
 .banner img{
@@ -152,7 +160,7 @@ height:100%;
 object-fit:cover;
 }
 
-/* BALANCE CARD */
+/* BALANCE */
 
 .balance-card{
 width:92%;
@@ -206,7 +214,7 @@ font-size:17px;
 font-weight:bold;
 }
 
-/* MENU GRID */
+/* MENU */
 
 .menu-grid{
 width:92%;
@@ -294,6 +302,7 @@ width:100%;
 height:170px;
 object-fit:cover;
 border-radius:50%;
+cursor:pointer;
 }
 
 .image-grid p{
@@ -302,7 +311,7 @@ font-size:12px;
 color:#7000d8;
 }
 
-/* VIP SECTION */
+/* VIP */
 
 .vip-title{
 width:92%;
@@ -350,7 +359,7 @@ top:25px;
 font-weight:bold;
 }
 
-/* AGENT SECTION */
+/* AGENT */
 
 .agent-title{
 width:92%;
@@ -393,6 +402,80 @@ color:gray;
 
 .active{
 color:#7000d8;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.modal-content{
+background:white;
+width:100%;
+max-width:700px;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+animation:showModal 0.3s ease;
+}
+
+.modal-image{
+width:100%;
+height:320px;
+object-fit:cover;
+}
+
+.modal-text{
+padding:25px;
+max-height:450px;
+overflow:auto;
+}
+
+.modal-text h2{
+font-size:32px;
+margin-bottom:20px;
+color:#222;
+}
+
+.modal-text p{
+font-size:17px;
+line-height:32px;
+color:#444;
+}
+
+.close{
+position:absolute;
+top:15px;
+right:20px;
+font-size:42px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+}
+
+@keyframes showModal{
+
+from{
+transform:scale(0.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
 }
 
 /* MOBILE */
@@ -522,7 +605,7 @@ ACCESO
 
 </div>
 
-<!-- BUTTON -->
+<!-- MAIN BUTTON -->
 
 <div class="main-button">
 
@@ -612,11 +695,13 @@ OBTENER INGRESOS
 
 </div>
 
-<!-- IMAGES -->
+<!-- IMAGE GRID -->
 
 <div class="image-grid">
 
-<div>
+<!-- INTRO -->
+
+<div onclick="openIntroModal()">
 
 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600">
 
@@ -624,27 +709,33 @@ OBTENER INGRESOS
 
 </div>
 
+<!-- RULES -->
+
 <div>
 
 <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600">
 
-<p>Reglas</p>
+<p>Rules and regulation</p>
 
 </div>
+
+<!-- AGENT -->
 
 <div>
 
 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600">
 
-<p>Cooperación</p>
+<p>Agent cooperation</p>
 
 </div>
+
+<!-- QUALIFICATION -->
 
 <div>
 
 <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600">
 
-<p>Calificación</p>
+<p>Qualifications</p>
 
 </div>
 
@@ -664,14 +755,12 @@ NIVEL DE MEMBRESÍA:
 
 <p>Balance mínimo USD: 100</p>
 
-<p>Comisión: S/15 por pedido</p>
+<p>Comisión S/15 por pedido</p>
 
-<p>Número de tareas: solo una vez</p>
+<p>Número de tareas: una vez</p>
 
 <div class="join">
-
 join>>
-
 </div>
 
 </div>
@@ -682,14 +771,12 @@ join>>
 
 <p>Balance mínimo USD: 200</p>
 
-<p>Comisión: S/25 por pedido</p>
+<p>Comisión S/25 por pedido</p>
 
-<p>Número de tareas: solo una vez</p>
+<p>Número de tareas: una vez</p>
 
 <div class="join">
-
 join>>
-
 </div>
 
 </div>
@@ -700,14 +787,12 @@ join>>
 
 <p>Balance mínimo USD: 300</p>
 
-<p>Comisión: S/35 por pedido</p>
+<p>Comisión S/35 por pedido</p>
 
 <p>Número de tareas: ilimitadas</p>
 
 <div class="join">
-
 join>>
-
 </div>
 
 </div>
@@ -772,6 +857,60 @@ USD1823.00
 
 </div>
 
+<!-- INTRO MODAL -->
+
+<div id="introModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close"
+onclick="closeIntroModal()">
+
+&times;
+
+</span>
+
+<img
+class="modal-image"
+src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1200">
+
+<div class="modal-text">
+
+<h2>Bienvenido</h2>
+
+<p>
+
+Estimado usuario:
+
+<br><br>
+
+Bienvenido a nuestra aplicación Shopf,
+una plataforma de terceros para la gestión inteligente de pedidos.
+
+<br><br>
+
+Nos hemos asociado con plataformas de compras online internacionales como Lazada, Amazon, eBay, Tokopedia, Shopee, SHINE y muchas más.
+
+<br><br>
+
+Las tiendas que utilizan nuestro sistema de compras inteligentes pueden determinar los importes de venta y los límites de crédito en la plataforma.
+
+<br><br>
+
+Los usuarios reales deben proporcionar su dirección, número de teléfono e información del pedido inteligente.
+
+<br><br>
+
+Tras la coincidencia con un pedido existente, el comerciante pagará una comisión a nuestros usuarios al finalizar la transacción.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 <script>
 
 /* REGISTER */
@@ -808,7 +947,7 @@ return;
 
 }
 
-/* SAVE USER */
+/* SAVE */
 
 localStorage.setItem(
 "userPhone",
@@ -820,7 +959,7 @@ localStorage.setItem(
 password
 );
 
-/* OPEN DASHBOARD */
+/* LOGIN SUCCESS */
 
 document.getElementById(
 "authPage"
@@ -870,6 +1009,26 @@ message.innerHTML =
 "Número o contraseña incorrecta";
 
 }
+
+}
+
+/* OPEN MODAL */
+
+function openIntroModal(){
+
+document.getElementById(
+"introModal"
+).style.display = "flex";
+
+}
+
+/* CLOSE MODAL */
+
+function closeIntroModal(){
+
+document.getElementById(
+"introModal"
+).style.display = "none";
 
 }
 
