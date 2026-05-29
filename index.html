@@ -495,7 +495,86 @@ flex-direction:column;
 }
 
 }
+/* DESKTOP */
 
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+/* TABLET */
+
+@media screen and (max-width:1024px){
+
+.menu-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.image-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* MOBILE */
+
+@media screen and (max-width:768px){
+
+.balance-card{
+flex-direction:column;
+text-align:center;
+gap:15px;
+}
+
+.cards{
+flex-direction:column;
+}
+
+.menu-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.image-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.vip-box{
+padding:15px;
+}
+
+.join{
+position:static;
+display:block;
+margin-top:10px;
+}
+
+}
+
+/* SMALL MOBILE */
+
+@media screen and (max-width:480px){
+
+.menu-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.image-grid{
+grid-template-columns:1fr;
+}
+
+.banner{
+height:180px;
+}
+
+.balance-card h1{
+font-size:28px;
+}
+
+.modal-image{
+height:220px;
+}
+
+}
 </style>
 
 </head>
