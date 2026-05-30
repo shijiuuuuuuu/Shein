@@ -225,7 +225,37 @@ Modificar contraseña
 <i class="fa-solid fa-chevron-right"></i>
 
 </a>
+<!-- Language Settings -->
+<a href="#" class="menu-item">
 
+<div class="d-flex align-items-center">
+
+<div class="icon-box">
+<i class="fa-solid fa-language"></i>
+</div>
+
+<div style="width:100%;">
+<div>Language Settings</div>
+
+<select id="languageSelect" class="form-select mt-2">
+<option value="en">English</option>
+<option value="my">မြန်မာ</option>
+<option value="es">Español</option>
+<option value="zh">中文</option>
+<option value="th">ไทย</option>
+</select>
+
+<button
+class="btn btn-primary btn-sm mt-2 w-100"
+onclick="changeLanguage()">
+Save Language
+</button>
+
+</div>
+
+</div>
+
+</a>
 <a href="#" class="menu-item" onclick="logout()">
 
 <div class="d-flex align-items-center">
@@ -297,6 +327,5 @@ window.location.href =
 }
 
 </script>
-
 </body>
 </html>
