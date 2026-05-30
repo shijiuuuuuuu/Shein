@@ -1,1117 +1,215 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>TikTok Mall Perú</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-<style>
-
-/* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-/* BODY */
-
-body{
-background:#f3eaf5;
-padding-bottom:100px;
-}
-
-/* LOGIN PAGE */
-
-#authPage{
-width:100%;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-}
-
-/* LOGIN BOX */
-
-.auth-box{
-width:100%;
-max-width:420px;
-text-align:center;
-}
-
-/* LOGO */
-
-.logo img{
-width:120px;
-border-radius:20px;
-}
-
-.logo h2{
-margin-top:10px;
-font-size:30px;
-color:#222;
-}
-
-/* FORM */
-
-.form-box{
-margin-top:30px;
-}
-
-/* PHONE */
-
-.phone-row{
-display:flex;
-margin-bottom:15px;
-}
-
-.country{
-width:90px;
-height:50px;
-border:none;
-border-radius:30px 0 0 30px;
-padding-left:15px;
-font-size:18px;
-outline:none;
-background:white;
-}
-
-.phone-input{
-flex:1;
-height:50px;
-border:none;
-border-radius:0 30px 30px 0;
-padding-left:20px;
-font-size:16px;
-outline:none;
-background:white;
-}
-
-/* INPUT */
-
-.input-box{
-width:100%;
-height:50px;
-border:none;
-border-radius:30px;
-padding-left:20px;
-font-size:16px;
-outline:none;
-background:white;
-margin-bottom:15px;
-}
-
-/* BUTTON */
-
-.btn{
-width:100%;
-height:55px;
-border:none;
-border-radius:40px;
-font-size:20px;
-font-weight:bold;
-color:white;
-cursor:pointer;
-margin-top:15px;
-}
-
-.register-btn{
-background:#7000d8;
-}
-
-.login-btn{
-background:#ff5b21;
-}
-
-/* MESSAGE */
-
-.message{
-margin-top:15px;
-color:red;
-font-size:15px;
-}
-
-/* DASHBOARD */
-
-#dashboardPage{
-display:none;
-}
-
-/* BANNER */
-
-.banner{
-width:100%;
-height:230px;
-overflow:hidden;
-}
-
-.banner img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-/* BALANCE */
-
-.balance-card{
-width:92%;
-margin:-25px auto 20px;
-background:white;
-border-radius:15px;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-position:relative;
-z-index:10;
-}
-
-.balance-card h1{
-font-size:38px;
-color:#222;
-}
-
-.balance-card p{
-font-size:14px;
-color:gray;
-}
-
-.wallet-btn{
-width:60px;
-height:60px;
-border:none;
-border-radius:50%;
-background:#7000d8;
-color:white;
-font-size:22px;
-}
-
-/* MAIN BUTTON */
-
-.main-button{
-width:92%;
-margin:auto;
-}
-
-.main-button button{
-width:100%;
-padding:16px;
-border:none;
-border-radius:40px;
-background:#7000d8;
-color:white;
-font-size:17px;
-font-weight:bold;
-}
-
-/* MENU */
-
-.menu-grid{
-width:92%;
-margin:35px auto;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-text-align:center;
-}
-
-.menu-item{
-display:flex;
-flex-direction:column;
-align-items:center;
-}
-
-.icon{
-width:65px;
-height:65px;
-border-radius:50%;
-background:#dec1ff;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:24px;
-color:#7000d8;
-margin-bottom:10px;
-}
-
-.menu-item p{
-font-size:13px;
-color:#222;
-}
-
-/* SECTION */
-
-.section-title{
-text-align:center;
-margin:25px 0;
-font-size:22px;
-color:#333;
-}
-
-/* CARDS */
-
-.cards{
-width:92%;
-margin:auto;
-display:flex;
-gap:15px;
-}
-
-.card{
-flex:1;
-background:white;
-padding:25px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
-
-.card h2{
-font-size:28px;
-}
-
-.card p{
-margin-top:10px;
-font-size:14px;
-color:gray;
-}
-
-/* IMAGE GRID */
-
-.image-grid{
-width:92%;
-margin:30px auto;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-text-align:center;
-}
-
-.image-grid img{
-width:100%;
-height:170px;
-object-fit:cover;
-border-radius:50%;
-cursor:pointer;
-}
-
-.image-grid p{
-margin-top:8px;
-font-size:12px;
-color:#7000d8;
-}
-
-/* VIP */
-
-.vip-title{
-width:92%;
-margin:25px auto 15px;
-font-size:18px;
-font-weight:bold;
-color:#444;
-}
-
-.vip-box{
-width:92%;
-margin:15px auto;
-padding:20px;
-border-radius:12px;
-color:white;
-position:relative;
-}
-
-.vip1{
-background:#7283a7;
-}
-
-.vip2{
-background:#eb8a11;
-}
-
-.vip3{
-background:#313ea8;
-}
-
-.vip-box h2{
-font-size:26px;
-margin-bottom:10px;
-}
-
-.vip-box p{
-margin:5px 0;
-font-size:14px;
-}
-
-.join{
-position:absolute;
-right:20px;
-top:25px;
-font-weight:bold;
-}
-
-/* AGENT */
-
-.agent-title{
-width:92%;
-margin:30px auto 15px;
-font-size:17px;
-font-weight:bold;
-color:#444;
-}
-
-.agent-box{
-width:92%;
-margin:10px auto;
-background:white;
-padding:20px;
-border-radius:12px;
-display:flex;
-justify-content:space-between;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
-
-/* BOTTOM NAV */
-
-.bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-height:70px;
-background:white;
-display:flex;
-justify-content:space-around;
-align-items:center;
-box-shadow:0 -2px 10px rgba(0,0,0,0.1);
-}
-
-.nav-item{
-font-size:22px;
-color:gray;
-}
-
-.active{
-color:#7000d8;
-}
-
-/* MODAL */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.75);
-justify-content:center;
-align-items:center;
-z-index:9999;
-padding:20px;
-}
-
-.modal-content{
-background:white;
-width:100%;
-max-width:700px;
-border-radius:20px;
-overflow:hidden;
-position:relative;
-animation:showModal 0.3s ease;
-}
-
-.modal-image{
-width:100%;
-height:320px;
-object-fit:cover;
-}
-
-.modal-text{
-padding:25px;
-max-height:450px;
-overflow:auto;
-}
-
-.modal-text h2{
-font-size:32px;
-margin-bottom:20px;
-color:#222;
-}
-
-.modal-text p{
-font-size:17px;
-line-height:32px;
-color:#444;
-}
-
-.close{
-position:absolute;
-top:15px;
-right:20px;
-font-size:42px;
-font-weight:bold;
-color:white;
-cursor:pointer;
-}
-
-@keyframes showModal{
-
-from{
-transform:scale(0.7);
-opacity:0;
-}
-
-to{
-transform:scale(1);
-opacity:1;
-}
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.image-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.menu-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.cards{
-flex-direction:column;
-}
-
-}
-/* DESKTOP */
-
-.container{
-max-width:1200px;
-margin:auto;
-}
-
-/* TABLET */
-
-@media screen and (max-width:1024px){
-
-.menu-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.image-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-/* MOBILE */
-
-@media screen and (max-width:768px){
-
-.balance-card{
-flex-direction:column;
-text-align:center;
-gap:15px;
-}
-
-.cards{
-flex-direction:column;
-}
-
-.menu-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.image-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.vip-box{
-padding:15px;
-}
-
-.join{
-position:static;
-display:block;
-margin-top:10px;
-}
-
-}
-
-/* SMALL MOBILE */
-
-@media screen and (max-width:480px){
-
-.menu-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.image-grid{
-grid-template-columns:1fr;
-}
-
-.banner{
-height:180px;
-}
-
-.balance-card h1{
-font-size:28px;
-}
-
-.modal-image{
-height:220px;
-}
-
-}
-</style>
-
-</head>
-
-<body>
-
-<!-- LOGIN PAGE -->
-
-<div id="authPage">
-
-<div class="auth-box">
-
-<div class="logo">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg">
-
-<h2>TikTok Mall Perú</h2>
-
-</div>
-
-<div class="form-box">
-
-<div class="phone-row">
-
-<select class="country">
-<option>+51</option>
-</select>
-
-<input
-type="text"
-id="phone"
-class="phone-input"
-placeholder="Ingrese número móvil">
-
-</div>
-
-<input
-type="password"
-id="password"
-class="input-box"
-placeholder="Ingrese contraseña">
-
-<input
-type="password"
-id="confirmPassword"
-class="input-box"
-placeholder="Confirme contraseña">
-
-<input
-type="text"
-class="input-box"
-placeholder="Código de invitación">
-
-<button
-class="btn register-btn"
-onclick="registerUser()">
-
-REGISTRO
-
-</button>
-
-<button
-class="btn login-btn"
-onclick="loginUser()">
-
-ACCESO
-
-</button>
-
-<div class="message" id="message"></div>
+<html lang="en" class="deeppurple-theme"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"><meta name="description" content=""><title>Inicio </title><!-- Material design icons CSS --><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--<link href="/red/materializeicon/material-icons.css" rel="stylesheet">--><!-- Roboto fonts CSS --><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"><!--<link href="/red/roboto/css.css" rel="stylesheet">--><!-- Bootstrap core CSS --><link href="/red/bootstrap/css/bootstrap.min.css" rel="stylesheet"><!-- Swiper CSS --><link href="/red/swiper/swiper-bundle.min.css" rel="stylesheet"><!-- Custom styles for this template --><link href="/red/style.css?v=V1.24" rel="stylesheet"><link rel="stylesheet" href="/static_new/css/public.css?v=V1.24"><link href="/public/js/layer_mobile/need/layer.css?2.0" type="text/css" rel="styleSheet" id="layermcss"><link href="https://oka.pw88nzlbafzbj.top/public/js/layer_mobile/need/layer.css?2.0" type="text/css" rel="styleSheet" id="layermcss"><style>@keyframes marqueeAnimation-4886844  { 100%  {transform:translateY(-1262.19px)}}</style></head><body class="" style=""><div class="wrapper homepage"><!-- header --><div class="header" style="backdrop-filter:none"><div class="row no-gutters"><div class="col"><!--<a class="btn  btn-link text-dark" href="/app" style="width: 120px">
+                  APP<i class="material-icons">get_app</i></a></a>--><!--<img src="/red/logo-header.png" alt="" class="header-logo">--></div><div class="col-auto"><a href="/index/support/index.html" class="btn  btn-link text-dark position-relative"><i class="material-icons">support_agent</i></a></div></div></div><!-- header ends --><div class="container" style="padding:0"><div class="swiper-container swiper-container-banner swiper-container-horizontal swiper-container-ios swiper-container-initialized swiper-container-pointer-events"><div class="swiper-wrapper" style="transform: translate3d(-417px, 0px, 0px); transition-duration: 0ms;" id="swiper-wrapper-2cd87af731847103" aria-live="off"><div class="swiper-slide swiper-slide-prev" style="width: 417px;" role="group" aria-label="1 / 7"><a href="*"><img src="/upload/5955e3a47de1887a/e2d9310d46b7a78e.jpg" style="width: 100%; height: 280px"></a></div><div class="swiper-slide swiper-slide-active" style="width: 417px;" role="group" aria-label="2 / 7"><a href="*"><img src="/upload/643ef34bb78ed6f0/da474ad741889d85.jpg" style="width: 100%; height: 280px"></a></div><div class="swiper-slide swiper-slide-next" style="width: 417px;" role="group" aria-label="3 / 7"><a href="*"><img src="/upload/8286ede0f4e9fadd/650548cdd37d4eee.jpg" style="width: 100%; height: 280px"></a></div><div class="swiper-slide" style="width: 417px;" role="group" aria-label="4 / 7"><a href="*"><img src="/upload/f2757e52f534a7db/3ec18cb08810783c.jpg" style="width: 100%; height: 280px"></a></div><div class="swiper-slide" style="width: 417px;" role="group" aria-label="5 / 7"><a href="*"><img src="/upload/2fcccbf6c0234370/54c37a7e03e6ba4e.jpg" style="width: 100%; height: 280px"></a></div><div class="swiper-slide" style="width: 417px;" role="group" aria-label="6 / 7"><a href="*"><img src="/upload/a735c26c7009ce41/8dcecb7a1f19efe6.jpg" style="width: 100%; height: 280px"></a></div><div class="swiper-slide" style="width: 417px;" role="group" aria-label="7 / 7"><a href="*"><img src="/upload/c719310e1fe63665/e4ef8eda43f82fa4.jpg" style="width: 100%; height: 280px"></a></div></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div></div><div class="container top-50" style="z-index: 2; position: relative;"><div class="card mb-4 shadow"><div class="card-body border-bottom"><div class="row"><div class="col"><h3 class="mb-0 font-weight-normal">USD3.00</h3><p class="text-mute">Mi saldo</p></div><div class="col-auto"><button class="btn btn-default border-3 btn-rounded-54 shadow" onclick="window.location.href=`/index/ctrl/recharge`"><i class="material-icons">attach_money</i></button></div></div></div></div></div><div class="container"><button onclick="window.location.href='/index/rot_order/index'" class="btn btn-lg btn-default btn-block btn-rounded shadow btn-important"><i class="material-icons text-mute">swipe</i><span>Empiece a ganar dinero</span></button></div><br><div class="container"><div class="row"><div class="swiper-container icon-slide mb-4 swiper-container-horizontal swiper-container-ios swiper-container-initialized swiper-container-pointer-events"><div class="swiper-wrapper" id="swiper-wrapper-1063b0200d829b6e8" aria-live="polite"><a href="/index/ctrl/recharge" class="swiper-slide text-center swiper-slide-active" role="group" aria-label="1 / 4"><div class="avatar avatar-60 no-shadow border-0"><div class="overlay bg-template"></div><i class="material-icons text-template">monetization_on</i></div><p class="small mt-2">Recargar monedas</p></a><a href="/index/ctrl/deposit" class="swiper-slide text-center swiper-slide-next" role="group" aria-label="2 / 4"><div class="avatar avatar-60 no-shadow border-0"><div class="overlay bg-template"></div><i class="material-icons text-template">payment</i></div><p class="small mt-2">Retirar monedas en efectivo</p></a><a href="/index/my/invite" class="swiper-slide text-center" role="group" aria-label="3 / 4"><div class="avatar avatar-60 no-shadow border-0"><div class="overlay bg-template"></div><i class="material-icons text-template">share</i></div><p class="small mt-2">Invitar amigos</p></a><a href="/index/support/index" class="swiper-slide text-center" role="group" aria-label="4 / 4"><div class="avatar avatar-60 no-shadow border-0"><div class="overlay bg-template"></div><i class="material-icons text-template">question_answer</i></div><p class="small mt-2">Servicio al cliente</p></a></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div></div></div><div class="container"><div class="row"><div class="col text-center"><h5 class="subtitle mb-1">Obtener ingresos</h5></div></div><div class="row text-center mt-1"><div class="col-6 col-md-3" style="display:none;"><div class="card shadow border-0 mb-3"><div class="card-body"><h5 class="mb-0 font-weight-normal">USD0</h5><p class="text-secondary text-mute small">ingresos de hoy</p></div></div></div><div class="col-6 col-md-3"><div class="card shadow border-0 mb-3"><div class="card-body"><h5 class="mb-0 font-weight-normal">USD0</h5><p class="text-secondary text-mute small">Comisión de hoy</p></div></div></div><div class="col-6 col-md-3"><div class="card shadow border-0 mb-3"><div class="card-body"><h5 class="mb-0 font-weight-normal">USD0</h5><p class="text-secondary text-mute small">Obtener ingresos</p></div></div></div></div></div><div class="container"><div class="row" style="font-size: 12px"><a class="col-3 text-center" href="javascript:void(0)" onclick="window.location.href=`/index/my/detail.html?id=2`"><img style="width:100%;" src="/static_indonesia/img/company-profile.png"><br>Introduction of the</a><a class="col-3 text-center" href="javascript:void(0)" onclick="window.location.href=`/index/my/detail.html?id=3`"><img style="width:100%;" src="/static_indonesia/img/Rule-description.png"><br>Rules and regulation</a><a class="col-3 text-center" href="javascript:void(0)" onclick="window.location.href=`/index/my/detail.html?id=4`"><img style="width:100%;" src="/static_indonesia/img/Agent-cooperation.png"><br>Agent cooperation</a><a class="col-3 text-center" href="javascript:void(0)" onclick="window.location.href=`/index/my/detail.html?id=12`"><img style="width:100%;" src="/static_indonesia/img/Calculate-revenue.png"><br>Qualifications</a></div></div><div class="container"><style>
+            .vip_bg_0 {
+                background: linear-gradient(240deg, rgb(12, 36, 66), rgb(79, 116, 146)) !important;
+            }
 
-</div>
+            .vip_bg_1 {
+                background: url(../../static/images/vip-bg.png?) center center / 160px 64px no-repeat, linear-gradient(240deg, rgb(89, 112, 149), rgb(118, 138, 170)) !important;
+            }
 
-</div>
+            .vip_bg_2 {
+                background: url(../../static/images/vip-bg.png?) center center / 160px 64px no-repeat, linear-gradient(240deg, rgba(219, 111, 33, 0.99), rgb(249, 153, 5)) !important;
+            }
 
-</div>
+            .vip_bg_3 {
+                background: url(../../static/images/vip-bg.png?) center center / 160px 64px no-repeat, linear-gradient(240deg, rgba(39, 53, 131, 0.99), rgb(47, 67, 177)) !important;
+            }
 
-<!-- DASHBOARD -->
+            .vip_bg_4 {
+                background: url(../../static/images/vip-bg.png?) center center / 160px 64px no-repeat, linear-gradient(240deg, rgba(61, 147, 181, 0.99), rgb(49, 179, 139)) !important;
+            }
 
-<div id="dashboardPage">
+            .vip_bg_5 {
+                background: url(../../static/images/vip-bg.png?) center center / 160px 64px no-repeat, linear-gradient(240deg, rgba(33, 35, 39, 0.99), rgb(67, 69, 73)) !important;
+            }
 
-<!-- BANNER -->
+            .vip_bg_6 {
+                background: url(../../static/images/vip-bg.png?) center center / 160px 64px no-repeat, linear-gradient(240deg, rgba(72, 0, 154, 0.99), rgb(97, 0, 160)) !important;
+            }
 
-<div class="banner">
+            .vip_bg_7 {
+                background: url(../../static/images/vip-bg.png?) center center / 160px 64px no-repeat, linear-gradient(to right, rgb(186, 139, 2), rgb(209, 145, 60)) !important;
+            }
+        </style><h6 class="subtitle">Nivel de membresía:</h6><div class="card shadow border-0 mb-3 bg-template vip_bg_1"><div class="card-body" onclick="window.location.href='/index/ctrl/recharge.html?vip_id=2'"><div class="row"><div class="col-auto pr-0"><img src="/red/graphics-carousel-scheme1.png" alt="" class="mw-100"></div><div class="col align-self-center"><h5 class="mb-2 font-weight-normal"><span style="float: left">VIP1</span><span style="float: right">join&gt;&gt;</span><div style="clear: both"></div><p class="text-mute" style="margin-bottom: 0;font-size: 12px">Balance minimo&nbsp;USD:
+                        100</p><p class="text-mute" style="font-size: 12px">Comisión&nbsp;15% |
+                        3&nbsp;Pedido</p><p class="text-mute" style="font-size: 12px">Número de tareas: solo una vez</p></h5></div></div></div></div><div class="card shadow border-0 mb-3 bg-template vip_bg_2"><div class="card-body" onclick="window.location.href='/index/ctrl/recharge.html?vip_id=3'"><div class="row"><div class="col-auto pr-0"><img src="/red/graphics-carousel-scheme1.png" alt="" class="mw-100"></div><div class="col align-self-center"><h5 class="mb-2 font-weight-normal"><span style="float: left">VIP2</span><span style="float: right">join&gt;&gt;</span><div style="clear: both"></div><p class="text-mute" style="margin-bottom: 0;font-size: 12px">Balance minimo&nbsp;USD:
+                        200</p><p class="text-mute" style="font-size: 12px">Comisión&nbsp;25% |
+                        5&nbsp;Pedido</p><p class="text-mute" style="font-size: 12px">Número de tareas: solo una vez</p></h5></div></div></div></div><div class="card shadow border-0 mb-3 bg-template vip_bg_3"><div class="card-body" onclick="window.location.href='/index/ctrl/recharge.html?vip_id=4'"><div class="row"><div class="col-auto pr-0"><img src="/red/graphics-carousel-scheme1.png" alt="" class="mw-100"></div><div class="col align-self-center"><h5 class="mb-2 font-weight-normal"><span style="float: left">VIP3</span><span style="float: right">join&gt;&gt;</span><div style="clear: both"></div><p class="text-mute" style="margin-bottom: 0;font-size: 12px">Balance minimo&nbsp;USD:
+                        300</p><p class="text-mute" style="font-size: 12px">Comisión&nbsp;35% |
+                        5&nbsp;Pedido</p><p class="text-mute" style="font-size: 12px">Número de tareas: ilimitadas</p></h5></div></div></div></div></div><div class="container"><h6 class="subtitle">Visualización de ingresos del agente</h6><div class="agent_box marquee" style="height: 270px; display: block;overflow:hidden;"><div class="js-marquee-wrapper" style="transform: translateY(0px); animation: 39.7185s linear 0s infinite normal none running marqueeAnimation-4886844;"><div class="js-marquee" style="margin-right: 0px; float: none; margin-bottom: 50px;"><div class="ul"><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">212347</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD2580.00
 
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200">
-
-</div>
-
-<!-- BALANCE -->
-
-<div class="balance-card">
-
-<div>
-
-<h1>S/3.00</h1>
-
-<p>Mi saldo</p>
-
-</div>
-
-<button class="wallet-btn">
-
-<i class="fa-solid fa-dollar-sign"></i>
-
-</button>
-
-</div>
-
-<!-- MAIN BUTTON -->
-
-<div class="main-button">
-
-<button>
-
-<i class="fa-solid fa-money-bill-wave"></i>
-
-EMPIECE A GANAR DINERO
-
-</button>
-
-</div>
-
-<!-- MENU -->
-
-<div class="menu-grid">
-
-<div class="menu-item">
-
-<div class="icon">
-<i class="fa-solid fa-coins"></i>
-</div>
-
-<p>Recargar monedas</p>
-
-</div>
-
-<div class="menu-item">
-
-<div class="icon">
-<i class="fa-solid fa-wallet"></i>
-</div>
-
-<p>Retirar monedas</p>
-
-</div>
-
-<div class="menu-item">
-
-<div class="icon">
-<i class="fa-solid fa-share-nodes"></i>
-</div>
-
-<p>Invitar amigos</p>
-
-</div>
-
-<div class="menu-item">
-
-<div class="icon">
-<i class="fa-solid fa-comments"></i>
-</div>
-
-<p>Servicio al cliente</p>
-
-</div>
-
-</div>
-
-<!-- TITLE -->
-
-<div class="section-title">
-
-OBTENER INGRESOS
-
-</div>
-
-<!-- CARDS -->
-
-<div class="cards">
-
-<div class="card">
-
-<h2>S/0</h2>
-
-<p>Comisión de hoy</p>
-
-</div>
-
-<div class="card">
-
-<h2>S/0</h2>
-
-<p>Obtener ingresos</p>
-
-</div>
-
-</div>
-
-<!-- IMAGE GRID -->
-
-<div class="image-grid">
-
-<!-- INTRO -->
-
-<div onclick="openIntroModal()">
-
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600">
-
-<p>Introducción</p>
-
-</div>
-
-<!-- RULES -->
-
-<div>
-
-<img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600">
-
-<p>Rules and regulation</p>
-
-</div>
-
-<!-- AGENT -->
-
-<div>
-
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600">
-
-<p>Agent cooperation</p>
-
-</div>
-
-<!-- QUALIFICATION -->
-
-<div>
-
-<img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600">
-
-<p>Qualifications</p>
-
-</div>
-
-</div>
-
-<!-- VIP -->
-
-<div class="vip-title">
-
-NIVEL DE MEMBRESÍA:
-
-</div>
-
-<div class="vip-box vip1">
-
-<h2>VIP1</h2>
-
-<p>Balance mínimo USD: 100</p>
-
-<p>Comisión S/15 por pedido</p>
-
-<p>Número de tareas: una vez</p>
-
-<div class="join">
-join>>
-</div>
-
-</div>
-
-<div class="vip-box vip2">
-
-<h2>VIP2</h2>
-
-<p>Balance mínimo USD: 200</p>
-
-<p>Comisión S/25 por pedido</p>
-
-<p>Número de tareas: una vez</p>
-
-<div class="join">
-join>>
-</div>
-
-</div>
-
-<div class="vip-box vip3">
-
-<h2>VIP3</h2>
-
-<p>Balance mínimo USD: 300</p>
-
-<p>Comisión S/35 por pedido</p>
-
-<p>Número de tareas: ilimitadas</p>
-
-<div class="join">
-join>>
-</div>
-
-</div>
-
-<!-- AGENT -->
-
-<div class="agent-title">
-
-VISUALIZACIÓN DE INGRESOS DEL AGENTE
-
-</div>
-
-<div class="agent-box">
-
-<div>949363</div>
-
-<div>
-USD264.00
-<br>
-<small>ingresos de hoy</small>
-</div>
-
-</div>
-
-<div class="agent-box">
-
-<div>718985</div>
-
-<div>
-USD1823.00
-<br>
-<small>ingresos de hoy</small>
-</div>
-
-</div>
-
-<!-- BOTTOM NAV -->
-
-<div class="bottom-nav">
-
-<div class="nav-item active">
-<i class="fa-solid fa-house"></i>
-</div>
-
-<div class="nav-item">
-<i class="fa-solid fa-list-check"></i>
-</div>
-
-<div class="nav-item">
-<i class="fa-solid fa-money-bill-transfer"></i>
-</div>
-
-<div class="nav-item">
-<i class="fa-solid fa-comment"></i>
-</div>
-
-<div class="nav-item">
-<i class="fa-solid fa-user"></i>
-</div>
-
-</div>
-
-</div>
-
-<!-- INTRO MODAL -->
-
-<div id="introModal" class="modal">
-
-<div class="modal-content">
-
-<span class="close"
-onclick="closeIntroModal()">
-
-&times;
-
-</span>
-
-<img
-class="modal-image"
-src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1200">
-
-<div class="modal-text">
-
-<h2>Bienvenido</h2>
-
-<p>
-
-Estimado usuario:
-
-<br><br>
-
-Bienvenido a nuestra aplicación Shopf,
-una plataforma de terceros para la gestión inteligente de pedidos.
-
-<br><br>
-
-Nos hemos asociado con plataformas de compras online internacionales como Lazada, Amazon, eBay, Tokopedia, Shopee, SHINE y muchas más.
-
-<br><br>
-
-Las tiendas que utilizan nuestro sistema de compras inteligentes pueden determinar los importes de venta y los límites de crédito en la plataforma.
-
-<br><br>
-
-Los usuarios reales deben proporcionar su dirección, número de teléfono e información del pedido inteligente.
-
-<br><br>
-
-Tras la coincidencia con un pedido existente, el comerciante pagará una comisión a nuestros usuarios al finalizar la transacción.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-/* REGISTER */
-
-function registerUser(){
-
-let phone =
-document.getElementById("phone").value;
-
-let password =
-document.getElementById("password").value;
-
-let confirmPassword =
-document.getElementById("confirmPassword").value;
-
-let message =
-document.getElementById("message");
-
-if(phone === "" || password === ""){
-
-message.innerHTML =
-"Complete todos los campos";
-
-return;
-
-}
-
-if(password !== confirmPassword){
-
-message.innerHTML =
-"La contraseña no coincide";
-
-return;
-
-}
-
-/* SAVE */
-
-localStorage.setItem(
-"userPhone",
-phone
-);
-
-localStorage.setItem(
-"userPassword",
-password
-);
-
-/* LOGIN SUCCESS */
-
-document.getElementById(
-"authPage"
-).style.display = "none";
-
-document.getElementById(
-"dashboardPage"
-).style.display = "block";
-
-}
-
-/* LOGIN */
-
-function loginUser(){
-
-let phone =
-document.getElementById("phone").value;
-
-let password =
-document.getElementById("password").value;
-
-let savedPhone =
-localStorage.getItem("userPhone");
-
-let savedPassword =
-localStorage.getItem("userPassword");
-
-let message =
-document.getElementById("message");
-
-if(
-phone === savedPhone &&
-password === savedPassword
-){
-
-document.getElementById(
-"authPage"
-).style.display = "none";
-
-document.getElementById(
-"dashboardPage"
-).style.display = "block";
-
-}else{
-
-message.innerHTML =
-"Número o contraseña incorrecta";
-
-}
-
-}
-
-/* OPEN MODAL */
-
-function openIntroModal(){
-
-document.getElementById(
-"introModal"
-).style.display = "flex";
-
-}
-
-/* CLOSE MODAL */
-
-function closeIntroModal(){
-
-document.getElementById(
-"introModal"
-).style.display = "none";
-
-}
-
-</script>
-
-</body>
-</html>
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">610845</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1231.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">463885</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD854.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">949363</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD264.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">718985</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1823.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">818747****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD2921.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">310723****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1710.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">626444****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD5728.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">484199****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD630.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">917999****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD3104.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">240555****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD6254.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">646003****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD260.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">323985****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1960.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">215914****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD4085.00</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div></div></div><div class="js-marquee" style="margin-right: 0px; float: none; margin-bottom: 0px;"><div class="ul"><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">212347</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD2580.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">610845</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1231.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">463885</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD854.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">949363</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD264.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">718985</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1823.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">818747****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD2921.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">310723****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1710.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">626444****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD5728.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">484199****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD630.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">917999****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD3104.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">240555****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD6254.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">646003****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD260.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">323985****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD1960.00
+
+</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div><div class="card shadow border-0 mb-3"><div class="card-body"><div class="row align-items-center"><div class="col-3 pr-0 text-center"><!--<div class="avatar avatar-30 no-shadow border-0">--><!--    <img src="" alt=""></div>--><h6 class="font-weight-normal mb-1">215914****</h6></div><div class="col-auto align-self-center border-left"><h6 class="font-weight-normal mb-1">USD4085.00</h6><p class="text-mute small text-secondary">ingresos de hoy</p></div></div></div></div></div></div></div></div></div><div class="container"><h6 class="subtitle">Socio</h6><div class="row"><!-- Swiper --><div class="swiper-container news-slide swiper-container-horizontal swiper-container-ios swiper-container-initialized swiper-container-pointer-events" style="width: 1250px; height: auto;"><div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);" id="swiper-wrapper-05609b286144c5e0" aria-live="polite"><div class="swiper-slide swiper-slide-active" style="width: 208.5px;" role="group" aria-label="1 / 7"><div class="card shadow-sm border-0 text-white"><img src="/static_indonesia/img/amazon.png"></div></div><div class="swiper-slide swiper-slide-next" style="width: 208.5px;" role="group" aria-label="2 / 7"><div class="card shadow-sm border-0 text-white"><img src="/static_indonesia/img/shopify.png"></div></div><div class="swiper-slide" style="width: 208.5px;" role="group" aria-label="3 / 7"><div class="card shadow-sm border-0 text-white"><img src="/static_indonesia/img/alibaba.png"></div></div><div class="swiper-slide" style="width: 208.5px;" role="group" aria-label="4 / 7"><div class="card shadow-sm border-0 text-white"><img src="/static_indonesia/img/walmart.png"></div></div><div class="swiper-slide" style="width: 208.5px;" role="group" aria-label="5 / 7"><div class="card shadow-sm border-0 text-white"><img src="/static_indonesia/img/lazada.png"></div></div><div class="swiper-slide" style="width: 208.5px;" role="group" aria-label="6 / 7"><div class="card shadow-sm border-0 text-white"><img src="/static_indonesia/img/bukalapak.png"></div></div><div class="swiper-slide" style="width: 208.5px;" role="group" aria-label="7 / 7"><div class="card shadow-sm border-0 text-white"><img src="/static_indonesia/img/orami.png"></div></div></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div></div></div><!-- footer--><div class="footer"><div class="no-gutters"><div class="col-auto mx-auto"><div class="row no-gutters justify-content-center"><div class="col-auto"><a href="/index/index/home.html" class="btn btn-link-default active"><i class="material-icons">home</i><!--<p>Inicio</p>--></a></div><div class="col-auto"><a href="/index/order/index.html" class="btn btn-link-default "><i class="material-icons">playlist_add_check</i><!--<p>Pedido</p>--></a></div><div class="col-auto"><a href="/index/rot_order/index.html" class="btn btn-link-default "><i class="material-icons">swipe</i><!--<p>Tomar un pedido</p>--></a></div><div class="col-auto"><a href="/index/support/index.html" class="btn btn-link-default "><i class="material-icons">chat</i><!--<p>Servicio al cliente</p></a>--></a></div><div class="col-auto"><a href="/index/my/index.html" class="btn btn-link-default "><i class="material-icons">person</i><!--<p>Mi</p>--></a></div></div></div></div></div><!-- footer ends--><!--tj--></div><!-- notification ends --><div class="modal fade in tanchuang" tabindex="-1" aria-hidden="true" style="display: none;"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div class="modal-content"><button type="button" class="close close-rounded tanchuangClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><div class="modal-header border-0" style="height: 100px;background: url(/red/tanchuang_header.png); background-size: cover;"></div><div class="modal-body text-center pt-4" style="max-height: 300px; overflow: scroll"><p><span style="color:#e74c3c;">Join my team every 10 minutes a day</span>. Earning <span style="color:#c0392b;">$5,000</span> a month is just the beginning! Every invite is a seed of opportunity, a stepping stone to wealth and freedom! Unlimited sharing and superb returns!</p></div><div class="modal-footer border-0"><button type="button" class="btn btn-default btn-lg btn-rounded shadow btn-block btn-important tanchuangClose" data-dismiss="modal">OK
+                </button></div></div></div></div><div class="notification shadow pt-0 pl-0 pr-0 border-0 bg-template-light"><div id="notification_countdown"></div><div class="row pt-2 pl-3 pr-3"><div class="col-auto align-self-center pr-0"><i class="material-icons text-template md-36">redeem</i></div><div class="col small notification-content">loading...</div><div class="col-auto align-self-center pl-0"><button class="btn btn-link closenotification"><i class="material-icons text-template md-18 ">close</i></button></div></div></div><script type="text/javascript">var app = {'online_popup': ""}</script><!-- jquery, popper and bootstrap js --><script src="/red/jquery-3.3.1.min.js"></script><script src="/red/popper.min.js"></script><script src="/red/bootstrap/js/bootstrap.min.js"></script><!-- swiper js --><script src="/red/swiper/swiper-bundle.min.js"></script><!-- cookie js --><script src="/red/jquery.cookie.js"></script><script charset="utf-8" src="/static_new/js/dialog.min.js"></script><link rel="stylesheet" href="/public/js/layer_mobile/need/layer.css"><script src="/public/js/layer_mobile/layer.js"></script><script charset="utf-8" src="/static_new/js/jquery.progressBarTimer.js"></script><script charset="utf-8" src="/static_new/js/common.js"></script><!-- template custom js --><script src="/red/main.js?v=V1.24"></script><!-- page level script --><script>
+    $(function () {
+        $('.footer').find('.btn-link-default').eq(0).addClass("active");
+        var bannerSwiper = new Swiper('.swiper-container-banner', {
+            slidesPerView: 1,
+            autoplay: true,
+        });
+        $('.tanchuangClose').click(function () {
+            $('#tanchuang').hide();
+            var date = new Date();
+            var minutes = 60 * 8;
+            date.setTime(date.getTime() + minutes * 60 * 1000);
+            $.cookie('tanchuang', 'none', {
+                expires: date
+            });
+        });
+        $('.announcement-task .a-t-items').click(function () {
+            if (!$(this).hasClass('not')) {
+                cid = $(this).data('cid');
+                window.location.href = '/index/rot_order/index.html?type=' + cid;
+            }
+        });
+        
+
+        if ("none" != 'none' || sessionStorage.getItem('login_flag') == '1') {
+            setTimeout(function () {
+                
+                    $('.tanchuang').modal('show');
+                },
+                500);
+            sessionStorage.removeItem('login_flag');
+        }
+        /*        $(document).dialog({
+                    type: 'alert',
+                    titleText: "DEPOS",
+                    buttonTextConfirm: "OK",
+                    autoClose: 0,
+                });*/
+    });
+
+    // (function ($) {
+    //     $.fn.textSlider = function (options) {
+    //         var defaults = {
+    //             scrollHeight: 25,
+    //             line: 1,
+    //             speed: 'normal',
+    //             timer: 2000
+    //         };
+    //         var opts = $.extend(defaults, options);
+    //         this.each(function () {
+    //             var timerID;
+    //             var obj = $(this);
+    //             var $ul = obj.children(".ul");
+    //             var $height = $ul.find(".card").height();
+    //             var $Upheight = 0 - opts.line * $height;
+    //             obj.hover(function () {
+    //                     clearInterval(timerID);
+    //                 },
+    //                 function () {
+    //                     timerID = setInterval(moveUp, opts.timer);
+    //                 });
+
+    //             function moveUp() {
+    //                 $ul.animate({
+    //                         "margin-top": $Upheight
+    //                     },
+    //                     opts.speed,
+    //                     function () {
+    //                         for (i = 0; i < opts.line; i++) {
+    //                             $ul.find("li:first").appendTo($ul);
+    //                         }
+    //                         $ul.css("margin-top", 0);
+    //                     });
+    //             };
+    //             timerID = setInterval(moveUp, opts.timer);
+    //         });
+    //     };
+    // })(jQuery);
+
+    // $(function () {
+    //     $(".agent_box").textSlider({
+    //         line: 2
+    //     });
+    // });
+
+
+
+    
+    
+    </script><style>
+        .marquee {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .js-marquee {
+          margin-bottom: 0px !important;
+        }
+    </style><!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--><script src="https://cdn.jsdelivr.net/npm/jquery.marquee/jquery.marquee.min.js"></script><script>
+    $(document).ready(function() {
+        
+        var timers = '14'
+        var tt = timers*1000
+        $('.marquee').marquee({
+            duration: tt,
+            gap: 50,
+            delayBeforeStart: 0,
+            direction: 'up',
+            duplicated: true,
+            startVisible:true
+        });
+
+        // 选择目标元素
+// const element = document.querySelector('.js-marquee-wrapper');
+
+// 设置 transform 属性
+// element.style.setProperty('transform', 'translateY(0px)', 'important');
+    });
+
+
+</script><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;5757b550ca314f3fa22e3c0a9806b97e&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+</body><wps-translate-entry></wps-translate-entry></html>
